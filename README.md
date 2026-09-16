@@ -1,5 +1,5 @@
 # Weatherly
-
+We are updating this readme file.
 Weatherly is a responsive static weather application built with HTML, CSS, and JavaScript. It uses the OpenWeatherMap Current Weather API to show the current temperature, weather condition, and useful details such as feels-like temperature, humidity, wind, pressure, visibility, and cloud cover.
 
 The API key is entered in the web interface and is not stored in the project files.
