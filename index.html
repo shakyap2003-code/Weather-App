@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Weatherly is a simple responsive app for checking current weather conditions."
+    />
+    <title>Weatherly</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="brand-row">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle cx="19" cy="18" r="8"></circle>
+            <path d="M15 36h19a7 7 0 0 0 1.1-13.9A11 11 0 0 0 14 24.4 6.5 6.5 0 0 0 15 36Z"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">Live conditions</p>
+          <h1>Weatherly</h1>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="panel form-panel" aria-labelledby="form-title">
+          <div class="panel-heading">
+            <p class="section-label">Find a forecast</p>
+            <h2 id="form-title">Check the sky</h2>
+            <p class="section-copy">
+              Enter a city and country to see the latest conditions.
+            </p>
+          </div>
+
+          <form id="weather-form" class="weather-form" novalidate>
+            <label for="api-key">OpenWeatherMap API key</label>
+            <div class="input-with-action">
+              <input
+                id="api-key"
+                name="apiKey"
+                type="password"
+                autocomplete="off"
+                placeholder="Paste your API key"
+                required
+              />
+              <button id="toggle-key" class="toggle-key" type="button" aria-label="Show API key">
+                Show
+              </button>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="city">City</label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  placeholder="e.g. London"
+                  autocomplete="address-level2"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="country">Country</label>
+                <input
+                  id="country"
+                  name="country"
+                  type="text"
+                  placeholder="e.g. GB"
+                  maxlength="2"
+                  autocomplete="country-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <button id="get-weather" class="get-weather" type="submit">Get Weather</button>
+          </form>
+
+          <p id="form-message" class="form-message" role="status" aria-live="polite" hidden></p>
+        </section>
+
+        <section class="panel weather-panel" aria-label="Current weather">
+          <div id="weather-empty" class="weather-empty">
+            <span class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" focusable="false">
+                <path d="M20 47h28a10 10 0 0 0 1.6-19.9A16 16 0 0 0 18 30.5 9.4 9.4 0 0 0 20 47Z"></path>
+                <path d="M42 12v7M42 3v2M54 17l-5 5M60 9l-4 4"></path>
+              </svg>
+            </span>
+            <h2>Your forecast is ready</h2>
+            <p>Search for a location to see its current temperature and conditions.</p>
+          </div>
+
+          <div id="weather-result" class="weather-result" hidden>
+            <div class="result-header">
+              <div>
+                <p class="section-label">Current weather</p>
+                <h2 id="location-name">—</h2>
+                <p id="condition-text">—</p>
+              </div>
+              <img
+                id="weather-icon"
+                class="weather-icon"
+                src=""
+                alt=""
+                width="84"
+                height="84"
+              />
+            </div>
+
+            <div class="temperature">
+              <span id="temperature-value">—</span>
+              <span class="temperature-unit">°C</span>
+            </div>
+
+            <div class="details-grid" aria-label="Weather details">
+              <div class="detail">
+                <span class="detail-label">Feels like</span>
+                <strong id="feels-like">—</strong>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Humidity</span>
+                <strong id="humidity">—</strong>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Wind</span>
+                <strong id="wind">—</strong>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Pressure</span>
+                <strong id="pressure">—</strong>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Visibility</span>
+                <strong id="visibility">—</strong>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Cloud cover</span>
+                <strong id="clouds">—</strong>
+              </div>
+            </div>
+
+            <p id="updated-at" class="updated-at">Updated just now</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
